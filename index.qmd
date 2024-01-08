@@ -9,9 +9,9 @@ editor: visual
 
 Programação funcional, basicamente, é um conjunto de ferramentas que nos permite usar funções e iterações a fim de simplificar operações morosas e complexas. Aqui, eu simplifiquei bastante, pois, a depender da implementação que o usuário está realizando, a programação funcional pode abarcar muito mais do que aqui foi dito.
 
-Nesse documento, irei mostrar uma simples aplicação do uso de programação funcional utilizando o R. Para fazer isso, não mais adequado do que utilizar o pacote `purrr` criado por Hadley Wickham. Este pacote é maravilhoso e, além de fornecer uma conjunto de funções estáveis no que se refere à tipage, isto é, o usuário sabe exatamente qual será o tipo de objeto de saída. Além do `purrr` estaremos utilizando os pacotes `dplyr`, `tidyr` and `ggplot2` e `janitor`.
+Nesse documento, irei mostrar uma simples aplicação do uso de programação funcional utilizando o R. Para fazer isso, nada mais adequado do que utilizar o pacote `purrr` criado por Hadley Wickham. Este pacote é maravilhoso e, além de fornecer uma conjunto de funções estáveis no que se refere à tipagem, isto é, o usuário sabe exatamente qual será o tipo de objeto de saída. Além do `purrr`, estaremos utilizando os pacotes `dplyr`, `tidyr` and `ggplot2` e `janitor`.
 
-A tarefa que executaremos neste documento trata-se de responder uma questão de um exercício da disciplina de Econometria do Doutorado em Economia da UFBA que é, basicamente, uma atividade de simulação de amostras de uma distribuição binomial. A atividade pede que o aluno simule uma distribuição binomial segundo os parâmetros dados no enunciado. A complexidade da atividade, em si, consiste nos subitens da questão que pedem que sejam geradas cerca de 200 amostras aleatórias da distribuição com, cada uma delas, sendo composta de 100 observações. Sem saber programação funcional, nosso código atingiria proporções descomunais, sem contar o fato da eficiência e legibilidade. Contudo, como veremos, utilizar programação funcional torna esse processo muito mais eficiente.
+A tarefa que executaremos neste documento trata-se de responder uma questão de um exercício da disciplina de Econometria do Doutorado em Economia da UFBA que é, basicamente, uma atividade de simulação de amostras de uma distribuição binomial. A atividade pede que o aluno simule uma distribuição binomial segundo os parâmetros dados no enunciado. A complexidade da atividade, em si, consiste nos subitens da questão, onde se pede que sejam geradas cerca de 200 amostras aleatórias da distribuição com, cada uma delas, sendo composta de 100 observações. Sem saber programação funcional, nosso código atingiria proporções descomunais, sem contar o fato da eficiência e legibilidade. Contudo, como veremos, utilizar programação funcional torna esse processo muito mais eficiente.
 
 ![](data-raw/sample.jpg){fig-align="center"}
 
@@ -28,7 +28,7 @@ library(janitor)
 set.seed(2023)
 ```
 
-Com os pacotes carregados, nós podemos utilizar a função `map()` do pacote `purrr` conjugando com a função `rbinom` do R base. A função `map()` permite que executemos iterações em uma forma muito mais eficiente que os famos loops `for`. Executamos a iteração e armazenamos os resultados em um objeto chamado `df_binom`. Essa operação responde ao item 1 da questão.
+Com os pacotes carregados, nós podemos utilizar a função `map()` do pacote `purrr` conjugando-a com a função `rbinom` do R base. A função `map()` permite que executemos iterações em uma forma muito mais eficiente que os famosos loops `for`. Executamos a iteração e armazenamos os resultados em um objeto chamado `df_binom`. Essa operação responde ao item 1 da questão.
 
 ```{r}
 #| warning: false
